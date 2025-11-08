@@ -16,6 +16,9 @@
     window.jsPsychImageKeyboardResponse = imageKeyboardResponse;
     window.jsPsychPreload = preload;
 
+    document.addEventListener("DOMContentLoaded", function() {
+    // your timeline, preload, instructions, trials, jsPsych.run() here
+
     /* create timeline */
     var timeline = [];
 
@@ -85,8 +88,10 @@
 
     /* start the experiment */
     jsPsych.run(timeline);
+    
+    });
   </script>
-
+  
   <!-- jsPsych default CSS -->
   <link href="https://unpkg.com/jspsych@8.2.2/dist/css/jspsych.css" rel="stylesheet">
 </head>
