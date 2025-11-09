@@ -18,7 +18,8 @@ const instructions_trial = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: "<p>Here is an example:</p>" +
             "<div style='display:flex; justify-content:space-around;'>" +
-            "<img src='img/img1.png' width='150'>" +
+            "<img src='<img src='https://raw.githubusercontent.com/lsdndns/touchtask/main/img/img1.png' width='150'>
+' width='150'>" +
             "<img src='img/img2.png' width='150'>" +
             "<img src='img/img3.png' width='150'>" +
             "</div>" +
