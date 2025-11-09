@@ -1,99 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Circle Color Experiment</title>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Lisatask</title>
 
-  <!-- jsPsych 8.2.2 library (ES module) -->
-  <script type="module">
-    import jsPsych from "https://unpkg.com/jspsych@8.2.2/dist/jspsych.js";
-    import htmlKeyboardResponse from "https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.0.3/dist/index.js";
-    import imageKeyboardResponse from "https://unpkg.com/@jspsych/plugin-image-keyboard-response@1.0.3/dist/index.js";
-    import preload from "https://unpkg.com/@jspsych/plugin-preload@1.0.3/dist/index.js";
+    <!-- jsPsych core -->
+    <script src="https://unpkg.com/jspsych@8.2.2"></script>
 
-    window.jsPsych = jsPsych;
-    window.jsPsychHtmlKeyboardResponse = htmlKeyboardResponse;
-    window.jsPsychImageKeyboardResponse = imageKeyboardResponse;
-    window.jsPsychPreload = preload;
-
-    document.addEventListener("DOMContentLoaded", function() {
-    // your timeline, preload, instructions, trials, jsPsych.run() here
-
-    /* create timeline */
-    var timeline = [];
-
-    /* preload images */
-    var preload = {
-      type: jsPsychPreload,
-      images: ['img/blue.png', 'img/orange.png']
-    };
-    timeline.push(preload);
-
-    /* define welcome message trial */
-    var welcome = {
-      type: jsPsychHtmlKeyboardResponse,
-      stimulus: "Welcome to the experiment. Press any key to begin."
-    };
-    timeline.push(welcome);
-
-    /* define instructions trial */
-    var instructions = {
-      type: jsPsychHtmlKeyboardResponse,
-      stimulus: `
-        <p>In this experiment, a circle will appear in the center 
-        of the screen.</p><p>If the circle is <strong>blue</strong>, 
-        press the letter F on the keyboard as fast as you can.</p>
-        <p>If the circle is <strong>orange</strong>, press the letter J 
-        as fast as you can.</p>
-        <div style='width: 700px;'>
-        <div style='float: left;'><img src='img/blue.png'></img>
-        <p class='small'><strong>Press the F key</strong></p></div>
-        <div style='float: right;'><img src='img/orange.png'></img>
-        <p class='small'><strong>Press the J key</strong></p></div>
-        </div>
-        <p>Press any key to begin.</p>
-      `,
-      post_trial_gap: 2000
-    };
-    timeline.push(instructions);
-
-    /* define trial stimuli array for timeline variables */
-    var test_stimuli = [
-      { stimulus: "img/blue.png"},
-      { stimulus: "img/orange.png"}
-    ];
-
-    /* define fixation and test trials */
-    var fixation = {
-      type: jsPsychHtmlKeyboardResponse,
-      stimulus: '<div style="font-size:60px;">+</div>',
-      choices: "NO_KEYS",
-      trial_duration: 1000,
-    };
-
-    var test = {
-      type: jsPsychImageKeyboardResponse,
-      stimulus: jsPsych.timelineVariable('stimulus'),
-      choices: ['f', 'j']
-    };
-
-    /* define test procedure */
-    var test_procedure = {
-      timeline: [fixation, test],
-      timeline_variables: test_stimuli,
-      randomize_order: true,
-      repetitions: 5
-    };
-    timeline.push(test_procedure);
-
-    /* start the experiment */
-    jsPsych.run(timeline);
+    <!-- jsPsych plugins -->
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-button-response@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-image-button-response@2.1.0"></script>
     
-    });
-  </script>
-  
-  <!-- jsPsych default CSS -->
-  <link href="https://unpkg.com/jspsych@8.2.2/dist/css/jspsych.css" rel="stylesheet">
-</head>
-<body></body>
+    <!-- jsPsych CSS -->
+    <link href="https://unpkg.com/jspsych@8.2.2/css/jspsych.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body></body>
+
+  <!-- experiment JS file -->
+  <script src="touchtask.js"></script>
 </html>
