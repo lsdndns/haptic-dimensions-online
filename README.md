@@ -1,4 +1,4 @@
-# Welcome
+triple odd one out + descriptors
 
 Two tasks in one file! 
 Output one csv file with the data. 
