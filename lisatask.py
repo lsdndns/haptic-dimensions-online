@@ -78,8 +78,8 @@ def show_practice_trial(index):
     # Instructions at the top
     canvas.create_text(
         screen_width // 2, 75,
-        text="Practice: Click on the texture that is most different from the other two.\n"
-             "Entraînement : Cliquez sur la texture la plus différente des deux autres.",
+        text="Click on the texture that is most different from the other two.\n"
+             "Cliquez sur la texture la plus différente des deux autres.",
         font=("Helvetica", 24, "bold"), fill="black", justify="center"
     )
 
